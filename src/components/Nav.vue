@@ -1,20 +1,20 @@
 <template>
-  <div class="nav">
-    <router-link to="/money">
-      <icon name = "money"/>
+  <nav>
+    <router-link to="/money" class="item">
+      <icon name = "money" class="icon"/>
       Money
     </router-link>
-|
-    <router-link to="/labels">
-      <icon name = "label"/>
+
+    <router-link to="/labels" class="item">
+      <icon name = "label" class="icon" />
       Labels
     </router-link>
-    |
-    <router-link to="/statistics">
-      <icon name = "statistics"/>
+
+    <router-link to="/statistics" class="item">
+      <icon name = "statistics" class="icon"/>
       Labels
     </router-link>
-  </div>
+  </nav>
 </template>
 
 <script lang="ts">
@@ -29,8 +29,27 @@
 </script>
 
 <style lang="scss" scoped>
-  .nav {
-    border: 1px solid red
+  @import "~@/assets/style/helper.scss";
+  nav {
+    display: flex;
+    box-shadow:0 0 3px rgba(0,0,0,0.25);
+    flex-direction: row;
+    font-size: 12px;
+    >.item{
+      padding: 2px 0;
+      width: 33.33333%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .icon{
+        width: 32px;
+        height: 32px;
+      }
+    }
+    > .item.selected{
+      color:$color-highlight;
+    }
   }
 
 </style>
