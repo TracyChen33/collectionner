@@ -2,7 +2,8 @@
   <div>
     <label class="notes">
       <span class="name">备注</span>
-      <input type="text" placeholder="Please enter the remark">
+      <input type="text" v-model="value"
+             placeholder="Please enter the remark">
     </label>
   </div>
 </template>
@@ -13,7 +14,7 @@
 
   @Component
   export default class Notes extends Vue {
-
+    value = '';
   }
 </script>
 
