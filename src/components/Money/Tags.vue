@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button>New Label</button>
+      <button @click="create">New Label</button>
     </div>
     <ul class="current">
       <li v-for="tag in dataSource" :key="tag"
@@ -9,7 +9,6 @@
           @click="toggle(tag)"
       >{{tag}}
       </li>
-
     </ul>
   </div>
 </template>
@@ -20,7 +19,7 @@
 
   @Component
   export default class Tags extends Vue {
-    @Prop() dataSource: string[] | undefined;
+    @Prop() readonly dataSource: string[] | undefined;
     selectedTags: string[] = [];
 
     toggle(tag: string) {
@@ -29,6 +28,15 @@
         this.selectedTags.splice(index, 1);
       } else {
         this.selectedTags.push(tag);
+      }
+    }
+
+    create() {
+      const name = window.prompt('Please enter the Label name');
+      if (name === '') {
+        window.alert('Label name cannot be empty');
+      } else if (this.dataSource) {
+        this.$emit('update:dataSource', [...this.dataSource, name]);
       }
     }
   }
@@ -56,6 +64,7 @@
         border-radius: $h/2;
         padding: 0 16px;
         margin-right: 12px;
+
         &.selected {
           color: white;
           background: darken($bg, 40%);
