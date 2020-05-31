@@ -1,7 +1,7 @@
 <template>
   <ul class="types">
-    <li :class="type ==='-' && 'selected'" @click="selectType('-')">Spend</li>
-    <li :class="type ==='+' && 'selected'" @click="selectType('+')">Income</li>
+    <li :class="value ==='-' && 'selected'" @click="selectType('-')">Spend</li>
+    <li :class="value ==='+' && 'selected'" @click="selectType('+')">Income</li>
   </ul>
 </template>
 
