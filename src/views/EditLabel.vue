@@ -6,6 +6,8 @@
     </div>
     <FormItem filed-name="Label Name"
            placeholder="Please enter the Label Name" />
+
+    <Button >Delete Label</Button>
   </Layout>
 
 </template>
@@ -15,8 +17,9 @@
   import {Component} from 'vue-property-decorator';
   import tagListModel from '@/models/tagListModel';
   import FormItem from '@/components/Money/FormItem.vue';
+  import Button from '@/components/Button.vue';
   @Component({
-    components: {FormItem}
+    components: {Button, FormItem}
   })
   export default class EditLabel extends Vue {
     created(){

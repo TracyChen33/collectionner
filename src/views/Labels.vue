@@ -9,7 +9,7 @@
 
     </div>
     <div class="createTag-wrapper">
-      <button class="createTag" @click="createTag">New Label</button>
+      <Button class="createTag" @click="createTag">New Label</Button>
     </div>
   </Layout>
 </template>
@@ -61,7 +61,6 @@
       margin-right: 16px;
     }
   }
-
   .createTag {
     background: #6699cc;
     border-radius: 4px;
