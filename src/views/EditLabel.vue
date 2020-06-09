@@ -4,6 +4,8 @@
       <Icon name="left" />
      <span>EditLabel</span>
     </div>
+    <Notes filed-name="Label Name"
+           placeholder="Please enter the Label Name" />
   </Layout>
 
 </template>
@@ -12,8 +14,10 @@
   import Vue from 'vue';
   import {Component} from 'vue-property-decorator';
   import tagListModel from '@/models/tagListModel';
-
-  @Component
+  import Notes from '@/components/Money/Notes.vue';
+  @Component({
+    components: {Notes}
+  })
   export default class EditLabel extends Vue {
     created(){
       const id =this.$route.params.id;

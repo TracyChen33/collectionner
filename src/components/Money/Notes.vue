@@ -3,22 +3,25 @@
     <label class="notes">
       <span class="name">备注</span>
       <input type="text" v-model="value"
-             placeholder="Please enter the remark">
+             :placeholder="this.placeholder">
     </label>
   </div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
-  import {Component, Watch} from 'vue-property-decorator';
+  import {Component, Prop, Watch} from 'vue-property-decorator';
 
   @Component
   export default class Notes extends Vue {
     value = '';
 
+    @Prop({required: true}) filedName!: string;
+    @Prop() placeholder?: string;
+
     @Watch('value')
     onValueChanged(value: string) {
-    this.$emit('update:value',value)
+      this.$emit('update:value', value);
     }
   }
 </script>
